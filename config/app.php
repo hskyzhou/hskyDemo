@@ -178,7 +178,18 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-        Bican\Roles\RolesServiceProvider::class,
+
+        Prettus\Repository\Providers\RepositoryServiceProvider::class,  //仓库
+        Laracasts\Generators\GeneratorsServiceProvider::class,          //生成器
+        HskyZhou\Roles\RolesServiceProvider::class,                     //角色权限
+        Barryvdh\Debugbar\ServiceProvider::class,                       //debugbar调试
+        Yajra\Datatables\DatatablesServiceProvider::class,              //datatables
+        DaveJamesMiller\Breadcrumbs\ServiceProvider::class,             //Breadcrumb
+        Laracasts\Flash\FlashServiceProvider::class,                    //Flash
+        Arcanedev\LogViewer\LogViewerServiceProvider::class,            //系统日志
+        Laravelista\Ekko\EkkoServiceProvider::class,                    //active类
+
+        App\Providers\RepositoryServiceProvider::class, 
 
     ],
 
