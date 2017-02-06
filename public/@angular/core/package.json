@@ -10,13 +10,12 @@
         "spec": ">=2.4.0 <2.5.0",
         "type": "range"
       },
-      "/Users/zhouwen/PhpProjects/hskyDemo"
+      "D:\\Project\\Php\\hskyDemo"
     ]
   ],
   "_from": "@angular/core@>=2.4.0 <2.5.0",
   "_id": "@angular/core@2.4.6",
   "_inCache": true,
-  "_installable": true,
   "_location": "/@angular/core",
   "_nodeVersion": "6.9.1",
   "_npmOperationalInternal": {
@@ -45,7 +44,7 @@
   "_shasum": "4abec78ee035b27e8192acf70409c3dbca24e829",
   "_shrinkwrap": null,
   "_spec": "@angular/core@~2.4.0",
-  "_where": "/Users/zhouwen/PhpProjects/hskyDemo",
+  "_where": "D:\\Project\\Php\\hskyDemo",
   "author": {
     "name": "angular"
   },

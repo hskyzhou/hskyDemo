@@ -4,6 +4,7 @@ require('laravel-elixir-vue');
 
 var elixirTypscript = require('elixir-typescript');
 require('laravel-elixir-livereload');
+var BrowserSync = require('laravel-elixir-browsersync2');
 
 /*
  |--------------------------------------------------------------------------
@@ -52,6 +53,12 @@ elixir(mix => {
 	    "suppressImplicitAnyIndexErrors": true
 	  });
 
-    mix.livereload();
-    mix.browserSync({proxy: 'hsky.demo.me:8080'});
+    BrowserSync.init();
+    mix.BrowserSync({
+    	proxy : "hsky.demo.me",
+    	logPrefix       : "Laravel Eixir BrowserSync",
+      logConnections  : false,
+      reloadOnRestart : false,
+      notify          : false
+    });
 });

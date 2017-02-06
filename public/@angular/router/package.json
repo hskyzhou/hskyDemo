@@ -10,13 +10,12 @@
         "spec": ">=3.4.0 <3.5.0",
         "type": "range"
       },
-      "/Users/zhouwen/PhpProjects/hskyDemo"
+      "D:\\Project\\Php\\hskyDemo"
     ]
   ],
   "_from": "@angular/router@>=3.4.0 <3.5.0",
   "_id": "@angular/router@3.4.6",
   "_inCache": true,
-  "_installable": true,
   "_location": "/@angular/router",
   "_nodeVersion": "6.9.1",
   "_npmOperationalInternal": {
@@ -45,7 +44,7 @@
   "_shasum": "df708503f2006a090a2704f5490a9ea1ba9fc9d0",
   "_shrinkwrap": null,
   "_spec": "@angular/router@~3.4.0",
-  "_where": "/Users/zhouwen/PhpProjects/hskyDemo",
+  "_where": "D:\\Project\\Php\\hskyDemo",
   "author": {
     "name": "angular"
   },
