@@ -5,6 +5,9 @@ require('laravel-elixir-vue');
 var elixirTypscript = require('elixir-typescript');
 require('laravel-elixir-livereload');
 
+var BrowserSync = require('laravel-elixir-browsersync2');
+
+
 /*
  |--------------------------------------------------------------------------
  | Elixir Asset Management
@@ -52,6 +55,22 @@ elixir(mix => {
 	    "suppressImplicitAnyIndexErrors": true
 	  });
 
-    mix.livereload();
-    mix.browserSync({proxy: 'hsky.demo.me:8080'});
+    // BrowserSync.init({
+    // 	port : 8080,
+    // 	proxy : 'hsky.demo.me'
+    // });
+    // mix.BrowserSync();
+    BrowserSync.init();
+    mix.BrowserSync(
+    {
+        proxy : "hsky.demo.me",
+    	port : 8080,
+        logPrefix       : "Laravel Eixir BrowserSync",
+        logConnections  : false,
+        reloadOnRestart : false,
+        notify          : false,
+        host : "hsky.demo.me",
+        open: "external",
+        files: ["public/app/*/*.js"]
+    });
 });
