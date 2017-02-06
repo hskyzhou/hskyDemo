@@ -4,6 +4,7 @@ require('laravel-elixir-vue');
 
 var elixirTypscript = require('elixir-typescript');
 require('laravel-elixir-livereload');
+var BrowserSync = require('laravel-elixir-browsersync2');
 
 var BrowserSync = require('laravel-elixir-browsersync2');
 
@@ -72,5 +73,6 @@ elixir(mix => {
         host : "hsky.demo.me",
         open: "external",
         files: ["public/app/*/*.js"]
+
     });
 });
