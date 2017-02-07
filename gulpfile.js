@@ -23,19 +23,17 @@ elixir(mix => {
     // mix.sass('app.scss')
     //    .webpack('app.js');
 
-    // mix.typescript('main.ts', 'public/');
-
-   //  mix.copy('node_modules/@angular', 'public/@angular');
-   //  mix.copy('node_modules/core-js', 'public/core-js');
-   //  mix.copy('node_modules/zone.js', 'public/zone.js');
-   //  mix.copy('node_modules/systemjs', 'public/systemjs');
-   //  mix.copy('node_modules/rxjs', 'public/rxjs');
+    // mix.copy('node_modules/@angular', 'public/@angular');
+    // mix.copy('node_modules/core-js', 'public/core-js');
+    // mix.copy('node_modules/zone.js', 'public/zone.js');
+    // mix.copy('node_modules/systemjs', 'public/systemjs');
+    // mix.copy('node_modules/rxjs', 'public/rxjs');
 
     mix.typescript('app/*.ts', 'public/app', null, {
 	    "target": "es5",
 	    "module": "commonjs",
 	    "moduleResolution": "node",
-	    "sourceMap": true,
+	    "sourceMap": false,
 	    "emitDecoratorMetadata": true,
 	    "experimentalDecorators": true,
 	    "lib": [ "es2015", "dom" ],
@@ -43,17 +41,17 @@ elixir(mix => {
 	    "suppressImplicitAnyIndexErrors": true
 	  });
 
-   //  mix.typescript('main.ts', 'public/main.js', null, {
-	  //   "target": "es5",
-	  //   "module": "commonjs",
-	  //   "moduleResolution": "node",
-	  //   "sourceMap": true,
-	  //   "emitDecoratorMetadata": true,
-	  //   "experimentalDecorators": true,
-	  //   "lib": [ "es2015", "dom" ],
-	  //   "noImplicitAny": true,
-	  //   "suppressImplicitAnyIndexErrors": true
-	  // });
+    mix.typescript('main.ts', 'public/main.js', null, {
+	    "target": "es5",
+	    "module": "commonjs",
+	    "moduleResolution": "node",
+	    "sourceMap": false,
+	    "emitDecoratorMetadata": true,
+	    "experimentalDecorators": true,
+	    "lib": [ "es2015", "dom" ],
+	    "noImplicitAny": true,
+	    "suppressImplicitAnyIndexErrors": true
+	  });
 
     // BrowserSync.init({
     // 	port : 8080,
@@ -65,9 +63,9 @@ elixir(mix => {
     BrowserSync.init();
     mix.BrowserSync(
     {
-    		localOnly: true,
+		localOnly: true,
         proxy : "hsky.demo.me",
-    		port : 10000,
+		port : 10000,
         logPrefix       : "Laravel Eixir BrowserSync",
         logConnections  : false,
         reloadOnRestart : false,

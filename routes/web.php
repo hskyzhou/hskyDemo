@@ -16,4 +16,13 @@ Route::get('/', function () {
 });
 
 
+$router->group(['prefix' => 'work'], function($router){
+	$router->get('/', function(){
+		return view('welcome');
+	});
+
+	$router->get('/add', function(){
+		return view('welcome');
+	});
+});
 Route::resource('article', 'ArticlesController');

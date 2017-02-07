@@ -9,19 +9,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
-        this.name = 'world angular2';
+var router_1 = require('@angular/router');
+var worklist_component_1 = require('./worklist.component');
+var addwork_component_1 = require('./addwork.component');
+var routes = [
+    { path: '', redirectTo: '/work', pathMatch: 'full' },
+    { path: 'work', component: worklist_component_1.WorklistComponent },
+    { path: 'work/add', component: addwork_component_1.AddWorkComponent },
+];
+var AppRoutingModule = (function () {
+    function AppRoutingModule() {
     }
-    AppComponent = __decorate([
-        core_1.Component({
-            selector: 'my-app',
-            templateUrl: './app/app.component.html'
+    AppRoutingModule = __decorate([
+        core_1.NgModule({
+            imports: [router_1.RouterModule.forRoot(routes)],
+            exports: [router_1.RouterModule]
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], AppRoutingModule);
+    return AppRoutingModule;
 }());
-exports.AppComponent = AppComponent;
+exports.AppRoutingModule = AppRoutingModule;
 
-//# sourceMappingURL=app.component.js.map
+//# sourceMappingURL=app-routing.module.js.map

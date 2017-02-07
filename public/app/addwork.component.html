@@ -1,0 +1,15 @@
+<my-work></my-work>
+
+<div>
+	<ul>
+		<li *ngFor="let work of worklist">
+			<span>{{work.name}}</span>
+		</li>
+	</ul>
+</div>
+
+<div>
+	<label>新工作</label>
+	<input type="text" name="name" [(ngModel)]="workname">
+	<button (click)="addWork()">添加</button>
+</div>

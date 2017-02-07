@@ -2,6 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <base href="/">
     <script src="core-js/client/shim.min.js"></script>
 
     <script src="zone.js/dist/zone.js"></script>
@@ -14,6 +15,6 @@
     </script>
 </head>
 <body>
-    <my-app>loading</my-app>
+    <my-app>loading2</my-app>
 </body>
 </html>

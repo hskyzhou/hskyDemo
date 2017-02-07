@@ -9,19 +9,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
-        this.name = 'world angular2';
+var WorklistComponent = (function () {
+    function WorklistComponent() {
+        this.worklist = [
+            {
+                name: 'hsky'
+            }
+        ];
     }
-    AppComponent = __decorate([
+    WorklistComponent.prototype.addWork = function () {
+        var workinfo = {
+            name: ""
+        };
+        this.worklist.push(workinfo);
+    };
+    WorklistComponent = __decorate([
         core_1.Component({
-            selector: 'my-app',
-            templateUrl: './app/app.component.html'
+            moduleId: module.id,
+            selector: 'my-work',
+            templateUrl: "worklist.component.html"
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], WorklistComponent);
+    return WorklistComponent;
 }());
-exports.AppComponent = AppComponent;
+exports.WorklistComponent = WorklistComponent;
 
-//# sourceMappingURL=app.component.js.map
+//# sourceMappingURL=worklist.component.js.map
