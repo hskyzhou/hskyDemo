@@ -1,5 +1,9 @@
-<nav>
-	<a routerLink="/work" routerLinkActive="active">我的工作列表</a>
-	<a routerLink="/work/add" routerLinkActive="active">添加工作</a>
-</nav>
+<my-work></my-work>
 
+<div>
+	<ul>
+		<li *ngFor="let work of worklist">
+			<span>{{work.name}}</span>
+		</li>
+	</ul>
+</div>

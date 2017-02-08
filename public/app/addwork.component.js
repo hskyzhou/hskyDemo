@@ -9,21 +9,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var work_service_1 = require('./work.service');
 var AddWorkComponent = (function () {
-    function AddWorkComponent() {
+    function AddWorkComponent(workService) {
+        this.workService = workService;
         this.workname = "";
-        this.worklist = [
-            {
-                name: 'hsky'
-            }
-        ];
+        this.worklist = [];
     }
+    AddWorkComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.workService.getWork().then(function (workList) {
+            _this.worklist = workList;
+        });
+    };
     AddWorkComponent.prototype.addWork = function () {
         var workinfo = {
             name: this.workname
         };
         this.worklist.push(workinfo);
         this.workname = "";
+        this.workService.addWork(workinfo);
     };
     AddWorkComponent = __decorate([
         core_1.Component({
@@ -31,7 +36,7 @@ var AddWorkComponent = (function () {
             selector: 'my-add-work',
             templateUrl: "addwork.component.html"
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [work_service_1.WorkService])
     ], AddWorkComponent);
     return AddWorkComponent;
 }());

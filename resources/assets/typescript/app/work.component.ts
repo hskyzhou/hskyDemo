@@ -6,11 +6,11 @@ import { WorkService} from './work.service';
 
 @Component({
 	moduleId : module.id,
-	selector: 'my-worklist',
-	templateUrl : "worklist.component.html"
+	selector: 'my-work',
+	templateUrl : "work.component.html"
 })
 
-export class WorklistComponent implements OnInit{
+export class WorkComponent implements OnInit{
 	worklist : Work[] = [];
 
 	constructor(private workService : WorkService){
@@ -18,6 +18,6 @@ export class WorklistComponent implements OnInit{
 	}
 
 	ngOnInit() : void{
-		this.workService.getWork().then(worklist => this.worklist = worklist);
+		
 	}
 } 

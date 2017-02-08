@@ -7,19 +7,36 @@ import { Work } from './work';
 
 @Injectable()
 export class WorkService{
-	private addWorkUrl = 'work/save';  // URL to web api
-	private headers = new Headers({'Content-Type': 'application/json'});
+	private addWorkUrl = 'work';  // URL to web api
+	private workListUrl = 'work/lists';  // URL to web api
+	private headers = new Headers({
+		'Content-Type': 'application/json',
+		'X-CSRF-TOKEN' : "safafa",
+	});
 
 	constructor(private http : Http){
-
 	}
 
 	addWork(work : Work) : Promise<Work>{
+		let headers = new Headers({ 'Content-Type': 'application/json', 'X-CSRF-TOKEN': this.getToken()});
 		return this.http
-			.post(this.addWorkUrl, JSON.stringify(work), {headers : this.headers})
+			.post(this.addWorkUrl, JSON.stringify(work), {headers : headers})
 			.toPromise()
 			.then(res => res.json().data)
 			.catch(this.handleError);
+	}
+
+	getWork() : Promise<Work[]>{
+		return this.http
+			.get(this.workListUrl)
+			.toPromise()
+			.then(res => res.json().data as Work[])
+			.catch(this.handleError);
+	}
+
+	getToken() {
+		let token = document.querySelector('meta[property="csrf-token"]')['content'];
+		return token;
 	}
 
 	private handleError(error: any): Promise<any> {

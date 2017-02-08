@@ -65,7 +65,7 @@ elixir(mix => {
     {
 		localOnly: true,
         proxy : "hsky.demo.me",
-		port : 10000,
+		port : 8080,
         logPrefix       : "Laravel Eixir BrowserSync",
         logConnections  : false,
         reloadOnRestart : false,

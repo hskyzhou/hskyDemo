@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 
 import { Work } from './work';
 
+import { WorkService} from './work.service';
+
 @Component({
 	moduleId : module.id,
 	selector: 'my-add-work',
@@ -10,12 +12,17 @@ import { Work } from './work';
 
 export class AddWorkComponent{
 	workname = "";
-	worklist : Work[] = [
-		{
-			name : 'hsky'
-		}
-	];
+	worklist : Work[] = [];
 
+	constructor(private workService : WorkService){
+
+	}
+
+	ngOnInit() : void{
+		this.workService.getWork().then(workList => {
+			this.worklist = workList;
+		});
+	}
 
 	addWork() : void{
 		let workinfo : Work = {
@@ -23,5 +30,8 @@ export class AddWorkComponent{
 		};
 		this.worklist.push(workinfo);
 		this.workname = "";
+		this.workService.addWork(workinfo);
 	}
+
+
 } 

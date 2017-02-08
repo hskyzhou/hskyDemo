@@ -14,15 +14,31 @@ require('rxjs/add/operator/toPromise');
 var WorkService = (function () {
     function WorkService(http) {
         this.http = http;
-        this.addWorkUrl = 'work/save'; // URL to web api
-        this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+        this.addWorkUrl = 'work'; // URL to web api
+        this.workListUrl = 'work/lists'; // URL to web api
+        this.headers = new http_1.Headers({
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': "safafa",
+        });
     }
     WorkService.prototype.addWork = function (work) {
+        var headers = new http_1.Headers({ 'Content-Type': 'application/json', 'X-CSRF-TOKEN': this.getToken() });
         return this.http
-            .post(this.addWorkUrl, JSON.stringify(work), { headers: this.headers })
+            .post(this.addWorkUrl, JSON.stringify(work), { headers: headers })
             .toPromise()
             .then(function (res) { return res.json().data; })
             .catch(this.handleError);
+    };
+    WorkService.prototype.getWork = function () {
+        return this.http
+            .get(this.workListUrl)
+            .toPromise()
+            .then(function (res) { return res.json().data; })
+            .catch(this.handleError);
+    };
+    WorkService.prototype.getToken = function () {
+        var token = document.querySelector('meta[property="csrf-token"]')['content'];
+        return token;
     };
     WorkService.prototype.handleError = function (error) {
         console.error('An error occurred', error); // for demo purposes only

@@ -24,5 +24,15 @@ $router->group(['prefix' => 'work'], function($router){
 	$router->get('/add', function(){
 		return view('welcome');
 	});
+
+	$router->get('/lists', [
+		'uses' => 'WorkController@lists'
+	]);
 });
+
+$router->resource('work', 'WorkController', [
+	'only' => ['store']
+]);
+
+
 Route::resource('article', 'ArticlesController');

@@ -9,20 +9,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
-        this.name = 'world angular2';
-        this.token = '';
+var work_service_1 = require('./work.service');
+var WorkComponent = (function () {
+    function WorkComponent(workService) {
+        this.workService = workService;
+        this.worklist = [];
     }
-    AppComponent = __decorate([
+    WorkComponent.prototype.ngOnInit = function () {
+    };
+    WorkComponent = __decorate([
         core_1.Component({
-            selector: 'my-app',
-            templateUrl: './app/app.component.html'
+            moduleId: module.id,
+            selector: 'my-work',
+            templateUrl: "work.component.html"
         }), 
-        __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+        __metadata('design:paramtypes', [work_service_1.WorkService])
+    ], WorkComponent);
+    return WorkComponent;
 }());
-exports.AppComponent = AppComponent;
+exports.WorkComponent = WorkComponent;
 
-//# sourceMappingURL=app.component.js.map
+//# sourceMappingURL=work.component.js.map
