@@ -9,6 +9,7 @@ import { AppComponent }  from './app.component';
 import { WorklistComponent } from './worklist.component';
 import { AddWorkComponent } from './addwork.component';
 import { WorkComponent } from './work.component';
+import { SendWeekWorkComponent } from './sendweekwork.component';
 
 import { WorkService } from './work.service';
 
@@ -23,7 +24,8 @@ import { WorkService } from './work.service';
   	AppComponent, 
   	WorklistComponent,
     AddWorkComponent,
-    WorkComponent
+    WorkComponent,
+    SendWeekWorkComponent
   ],
   providers : [
     WorkService

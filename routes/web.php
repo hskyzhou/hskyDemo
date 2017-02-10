@@ -25,6 +25,10 @@ $router->group(['prefix' => 'work'], function($router){
 		return view('welcome');
 	});
 
+	$router->get('/sendweekwork', function(){
+		return view('welcome');
+	});
+
 	$router->get('/lists', [
 		'uses' => 'WorkController@lists'
 	]);

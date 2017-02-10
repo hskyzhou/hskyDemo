@@ -17,6 +17,7 @@ var app_component_1 = require('./app.component');
 var worklist_component_1 = require('./worklist.component');
 var addwork_component_1 = require('./addwork.component');
 var work_component_1 = require('./work.component');
+var sendweekwork_component_1 = require('./sendweekwork.component');
 var work_service_1 = require('./work.service');
 var AppModule = (function () {
     function AppModule() {
@@ -34,7 +35,8 @@ var AppModule = (function () {
                 app_component_1.AppComponent,
                 worklist_component_1.WorklistComponent,
                 addwork_component_1.AddWorkComponent,
-                work_component_1.WorkComponent
+                work_component_1.WorkComponent,
+                sendweekwork_component_1.SendWeekWorkComponent
             ],
             providers: [
                 work_service_1.WorkService

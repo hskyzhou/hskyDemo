@@ -1,0 +1,15 @@
+<my-work></my-work>
+
+<div>
+	<div class="form-group">
+		接收者: <input type="text" name="sender" [(ngModel)]="weekWork.sender">
+	</div>
+	
+	<div class="form-group">
+		抄送者: <input type="text" name="cc" [(ngModel)]="weekWork.cc">
+	</div>
+	
+	<div>
+		<button (click)="send()">发送</button>
+	</div>
+</div>

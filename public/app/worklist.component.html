@@ -4,7 +4,7 @@
 	<ul>
 		<li *ngFor="let key of workListKeys;">
 			<span>{{key}}</span>
-			<p *ngFor="let work of worklist[key]">
+			<p *ngFor="let work of worklist[key];">
 				<span>{{work.name}}</span>
 			</p>
 		</li>

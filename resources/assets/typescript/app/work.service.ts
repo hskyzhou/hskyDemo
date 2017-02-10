@@ -10,6 +10,7 @@ export class WorkService{
 	private addWorkUrl = 'work';  // URL to web api
 	private workListUrl = 'work/lists';  // URL to web api
 	private recentWorkUrl = 'work/recentlists';  // URL to web api
+	private sendWeekWorkUrl = 'work/sendweekwork';  // URL to web api
 	private headers = new Headers({
 		'Content-Type': 'application/json',
 		'X-CSRF-TOKEN' : "safafa",
@@ -39,7 +40,15 @@ export class WorkService{
 		return this.http
 			.get(this.recentWorkUrl)
 			.toPromise()
-			.then(res => res.json().data)
+			.then(res => res.json().data as Work[])
+			.catch(this.handleError);
+	}
+
+	sendWeekWork() : Promise<Object>{
+		return this.http
+			.post(this.sendWeekWorkUrl)
+			.toPromise()
+			.then(res => res.json() as Object)
 			.catch(this.handleError);
 	}
 

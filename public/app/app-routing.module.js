@@ -12,10 +12,12 @@ var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var worklist_component_1 = require('./worklist.component');
 var addwork_component_1 = require('./addwork.component');
+var sendweekwork_component_1 = require('./sendweekwork.component');
 var routes = [
     { path: '', redirectTo: '/work', pathMatch: 'full' },
     { path: 'work', component: worklist_component_1.WorklistComponent },
     { path: 'work/add', component: addwork_component_1.AddWorkComponent },
+    { path: 'work/sendweekwork', component: sendweekwork_component_1.SendWeekWorkComponent },
 ];
 var AppRoutingModule = (function () {
     function AppRoutingModule() {
