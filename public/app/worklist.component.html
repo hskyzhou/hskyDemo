@@ -2,8 +2,11 @@
 
 <div>
 	<ul>
-		<li *ngFor="let work of worklist">
-			<span>{{work.name}}</span>
+		<li *ngFor="let key of workListKeys;">
+			<span>{{key}}</span>
+			<p *ngFor="let work of worklist[key]">
+				<span>{{work.name}}</span>
+			</p>
 		</li>
 	</ul>
 </div>

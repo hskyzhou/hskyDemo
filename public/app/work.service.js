@@ -16,6 +16,7 @@ var WorkService = (function () {
         this.http = http;
         this.addWorkUrl = 'work'; // URL to web api
         this.workListUrl = 'work/lists'; // URL to web api
+        this.recentWorkUrl = 'work/recentlists'; // URL to web api
         this.headers = new http_1.Headers({
             'Content-Type': 'application/json',
             'X-CSRF-TOKEN': "safafa",
@@ -32,6 +33,13 @@ var WorkService = (function () {
     WorkService.prototype.getWork = function () {
         return this.http
             .get(this.workListUrl)
+            .toPromise()
+            .then(function (res) { return res.json().data; })
+            .catch(this.handleError);
+    };
+    WorkService.prototype.getRecentWork = function () {
+        return this.http
+            .get(this.recentWorkUrl)
             .toPromise()
             .then(function (res) { return res.json().data; })
             .catch(this.handleError);

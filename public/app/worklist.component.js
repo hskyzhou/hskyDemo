@@ -13,11 +13,15 @@ var work_service_1 = require('./work.service');
 var WorklistComponent = (function () {
     function WorklistComponent(workService) {
         this.workService = workService;
-        this.worklist = [];
+        this.worklist = {};
     }
     WorklistComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.workService.getWork().then(function (worklist) { return _this.worklist = worklist; });
+        this.workService.getRecentWork().then(function (worklist) {
+            // console.log(this.worklist);
+            _this.workListKeys = Object.keys(worklist);
+            _this.worklist = worklist;
+        });
     };
     WorklistComponent = __decorate([
         core_1.Component({

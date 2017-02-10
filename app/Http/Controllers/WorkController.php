@@ -22,4 +22,10 @@ class WorkController extends Controller
     	$results = $this->service->lists();
     	return response()->json($results);
     }
+
+    /*本周工作列表*/
+    public function recentLists(){
+        $results = $this->service->recentLists();
+        return response()->json($results);
+    }
 }

@@ -28,6 +28,10 @@ $router->group(['prefix' => 'work'], function($router){
 	$router->get('/lists', [
 		'uses' => 'WorkController@lists'
 	]);
+
+	$router->get('/recentlists', [
+		'uses' => 'WorkController@recentLists'
+	]);
 });
 
 $router->resource('work', 'WorkController', [

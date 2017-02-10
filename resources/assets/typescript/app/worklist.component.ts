@@ -11,13 +11,19 @@ import { WorkService} from './work.service';
 })
 
 export class WorklistComponent implements OnInit{
-	worklist : Work[] = [];
+	worklist : { [id: string] : any} = {};
+	workListKeys : Array<string>;
+
 
 	constructor(private workService : WorkService){
 
 	}
 
 	ngOnInit() : void{
-		this.workService.getWork().then(worklist => this.worklist = worklist);
+		this.workService.getRecentWork().then(worklist => {
+			// console.log(this.worklist);
+			this.workListKeys = Object.keys(worklist);
+			this.worklist = worklist;
+		});
 	}
 } 

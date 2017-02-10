@@ -59,19 +59,19 @@ elixir(mix => {
     // });
     // mix.BrowserSync();
 
-    mix.livereload();
-    BrowserSync.init();
-    mix.BrowserSync(
-    {
-		localOnly: true,
-        proxy : "hsky.demo.me",
-		port : 8080,
-        logPrefix       : "Laravel Eixir BrowserSync",
-        logConnections  : false,
-        reloadOnRestart : false,
-        notify          : false,
-        host : "hsky.demo.me",
-        open: "external",
-        // files: ["public/app/*/*.js"]
-    });
+  //   mix.livereload();
+  //   BrowserSync.init();
+  //   mix.BrowserSync(
+  //   {
+		// localOnly: true,
+  //       proxy : "hsky.demo.me",
+		// port : 8080,
+  //       logPrefix       : "Laravel Eixir BrowserSync",
+  //       logConnections  : false,
+  //       reloadOnRestart : false,
+  //       notify          : false,
+  //       host : "hsky.demo.me",
+  //       open: "external",
+  //       // files: ["public/app/*/*.js"]
+  //   });
 });

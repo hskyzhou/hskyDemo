@@ -40,4 +40,18 @@ class WorkService{
 			'data' => $workList,
 		];
 	}
+
+	public function recentLists(){
+		$workList = $this->workRepo->all()->map(function($item, $key){
+			return [
+				'name' => $item->name,
+				'created_at' => $item->created_at->format('Y-m-d')
+			];
+		})->groupBy('created_at');
+
+		return [
+			'result' => true,
+			'data' => $workList,
+		];
+	}
 }
