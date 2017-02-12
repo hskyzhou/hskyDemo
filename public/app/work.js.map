@@ -1,1 +1,1 @@
-{"version":3,"sources":["work.ts"],"names":[],"mappings":";AAAA;IAAA;IAEA,CAAC;IAAD,WAAC;AAAD,CAFA,AAEC,IAAA;AAFY,YAAI,OAEhB,CAAA","file":"work.js","sourcesContent":["export class Work{\r\n\tname : string;\r\n}"],"sourceRoot":"/source/"}
+{"version":3,"sources":["work.ts"],"names":[],"mappings":";AAAA;IAAA;IAGA,CAAC;IAAD,WAAC;AAAD,CAHA,AAGC,IAAA;AAHY,YAAI,OAGhB,CAAA","file":"work.js","sourcesContent":["export class Work{\n\tname : string;\n\tbelong_project : string;\n}"]}

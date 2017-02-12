@@ -29,7 +29,7 @@ export class SendWeekWorkComponent implements OnInit{
 	}
 
 	send() : void{
-		this.workService.sendWeekWork().then(result => {
+		this.workService.sendWeekWork(this.weekWork).then(result => {
 			alert(result.message)
 		});
 	}

@@ -26,6 +26,9 @@ var SendWeekWorkComponent = (function () {
         // });
     };
     SendWeekWorkComponent.prototype.send = function () {
+        this.workService.sendWeekWork(this.weekWork).then(function (result) {
+            alert(result.message);
+        });
     };
     SendWeekWorkComponent = __decorate([
         core_1.Component({

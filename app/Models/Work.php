@@ -11,7 +11,7 @@ class Work extends Model implements Transformable
     use TransformableTrait;
 
     protected $fillable = [
-    	'name', 'desc'
+    	'name', 'desc', 'belong_project'
     ];
 
 }

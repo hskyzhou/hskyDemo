@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/toPromise';
 
 import { Work } from './work';
+import { Result } from './result';
 
 @Injectable()
 export class WorkService{
@@ -11,18 +12,14 @@ export class WorkService{
 	private workListUrl = 'work/lists';  // URL to web api
 	private recentWorkUrl = 'work/recentlists';  // URL to web api
 	private sendWeekWorkUrl = 'work/sendweekwork';  // URL to web api
-	private headers = new Headers({
-		'Content-Type': 'application/json',
-		'X-CSRF-TOKEN' : "safafa",
-	});
+	private headers = new Headers({ 'Content-Type': 'application/json', 'X-CSRF-TOKEN': this.getToken()});
 
 	constructor(private http : Http){
 	}
 
 	addWork(work : Work) : Promise<Work>{
-		let headers = new Headers({ 'Content-Type': 'application/json', 'X-CSRF-TOKEN': this.getToken()});
 		return this.http
-			.post(this.addWorkUrl, JSON.stringify(work), {headers : headers})
+			.post(this.addWorkUrl, JSON.stringify(work), {headers : this.headers})
 			.toPromise()
 			.then(res => res.json().data)
 			.catch(this.handleError);
@@ -44,11 +41,11 @@ export class WorkService{
 			.catch(this.handleError);
 	}
 
-	sendWeekWork() : Promise<Object>{
+	sendWeekWork(info : Object) : Promise<Result>{
 		return this.http
-			.post(this.sendWeekWorkUrl)
+			.post(this.sendWeekWorkUrl, JSON.stringify(info), {headers : this.headers})
 			.toPromise()
-			.then(res => res.json() as Object)
+			.then(res => res.json() as Result)
 			.catch(this.handleError);
 	}
 

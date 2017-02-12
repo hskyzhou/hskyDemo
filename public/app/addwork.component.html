@@ -9,7 +9,13 @@
 </div>
 
 <div>
-	<label>新工作</label>
-	<input type="text" name="name" [(ngModel)]="workname">
+	<div class="form-group">
+		<label>新工作</label>
+		<input type="text" name="name" [(ngModel)]="work.name">
+	</div>
+	<div class="form-group">
+		<label>所属项目</label>
+		<input type="text" name="belong_project" [(ngModel)]="work.belong_project">
+	</div>
 	<button (click)="addWork()">添加</button>
 </div>

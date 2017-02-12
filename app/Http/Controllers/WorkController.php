@@ -28,4 +28,10 @@ class WorkController extends Controller
         $results = $this->service->recentLists();
         return response()->json($results);
     }
+
+    /*发送周报*/
+    public function sendWeekWork(){
+        $results = $this->service->sendWeekWork();
+        return response()->json($results);
+    }
 }

@@ -11,13 +11,19 @@ import { WorkService} from './work.service';
 })
 
 export class AddWorkComponent{
-	workname = "";
+	work : Work = new Work();
 	worklist : Work[] = [];
 
 	constructor(private workService : WorkService){
-
+		this.resetWork();
 	}
 
+	resetWork(): void{
+		this.work = {
+			"name" : "",
+			"belong_project" : "",
+		}
+	}
 	ngOnInit() : void{
 		this.workService.getWork().then(workList => {
 			this.worklist = workList;
@@ -25,12 +31,10 @@ export class AddWorkComponent{
 	}
 
 	addWork() : void{
-		let workinfo : Work = {
-			name : this.workname
-		};
-		this.worklist.push(workinfo);
-		this.workname = "";
-		this.workService.addWork(workinfo);
+		console.log(this.work);
+		this.worklist.push(this.work);
+		this.workService.addWork(this.work);
+		this.resetWork();
 	}
 
 

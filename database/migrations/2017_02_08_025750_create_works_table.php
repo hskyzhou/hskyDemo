@@ -18,6 +18,7 @@ class CreateWorksTable extends Migration
 
             $table->string('name')->default('');
             $table->string('desc')->default('');
+            $table->string('belong_project')->default('')->comment('工作所属项目');
 
             $table->timestamps();
 		});

@@ -17,15 +17,12 @@ var WorkService = (function () {
         this.addWorkUrl = 'work'; // URL to web api
         this.workListUrl = 'work/lists'; // URL to web api
         this.recentWorkUrl = 'work/recentlists'; // URL to web api
-        this.headers = new http_1.Headers({
-            'Content-Type': 'application/json',
-            'X-CSRF-TOKEN': "safafa",
-        });
+        this.sendWeekWorkUrl = 'work/sendweekwork'; // URL to web api
+        this.headers = new http_1.Headers({ 'Content-Type': 'application/json', 'X-CSRF-TOKEN': this.getToken() });
     }
     WorkService.prototype.addWork = function (work) {
-        var headers = new http_1.Headers({ 'Content-Type': 'application/json', 'X-CSRF-TOKEN': this.getToken() });
         return this.http
-            .post(this.addWorkUrl, JSON.stringify(work), { headers: headers })
+            .post(this.addWorkUrl, JSON.stringify(work), { headers: this.headers })
             .toPromise()
             .then(function (res) { return res.json().data; })
             .catch(this.handleError);
@@ -42,6 +39,13 @@ var WorkService = (function () {
             .get(this.recentWorkUrl)
             .toPromise()
             .then(function (res) { return res.json().data; })
+            .catch(this.handleError);
+    };
+    WorkService.prototype.sendWeekWork = function (info) {
+        return this.http
+            .post(this.sendWeekWorkUrl, JSON.stringify(info), { headers: this.headers })
+            .toPromise()
+            .then(function (res) { return res.json(); })
             .catch(this.handleError);
     };
     WorkService.prototype.getToken = function () {

@@ -9,13 +9,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var work_1 = require('./work');
 var work_service_1 = require('./work.service');
 var AddWorkComponent = (function () {
     function AddWorkComponent(workService) {
         this.workService = workService;
-        this.workname = "";
+        this.work = new work_1.Work();
         this.worklist = [];
+        this.resetWork();
     }
+    AddWorkComponent.prototype.resetWork = function () {
+        this.work = {
+            "name": "",
+            "belong_project": "",
+        };
+    };
     AddWorkComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.workService.getWork().then(function (workList) {
@@ -23,12 +31,10 @@ var AddWorkComponent = (function () {
         });
     };
     AddWorkComponent.prototype.addWork = function () {
-        var workinfo = {
-            name: this.workname
-        };
-        this.worklist.push(workinfo);
-        this.workname = "";
-        this.workService.addWork(workinfo);
+        console.log(this.work);
+        this.worklist.push(this.work);
+        this.workService.addWork(this.work);
+        this.resetWork();
     };
     AddWorkComponent = __decorate([
         core_1.Component({
