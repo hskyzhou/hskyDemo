@@ -1,1 +1,1 @@
-{"version":3,"sources":["result.ts"],"names":[],"mappings":";AAAA;IAAA;IAIA,CAAC;IAAD,aAAC;AAAD,CAJA,AAIC,IAAA;AAJY,cAAM,SAIlB,CAAA","file":"result.js","sourcesContent":["export class Result{\n\tcode : string;\n\tresult : boolean;\n\tmessage : string;\n}"]}
+{"version":3,"sources":["result.ts"],"names":[],"mappings":";AAAA;IAAA;IAIA,CAAC;IAAD,aAAC;AAAD,CAJA,AAIC,IAAA;AAJY,cAAM,SAIlB,CAAA","file":"result.js","sourcesContent":["export class Result{\r\n\tcode : string;\r\n\tresult : boolean;\r\n\tmessage : string;\r\n}"],"sourceRoot":"/source/"}

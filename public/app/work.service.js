@@ -24,7 +24,7 @@ var WorkService = (function () {
         return this.http
             .post(this.addWorkUrl, JSON.stringify(work), { headers: this.headers })
             .toPromise()
-            .then(function (res) { return res.json().data; })
+            .then(function (res) { return res.json(); })
             .catch(this.handleError);
     };
     WorkService.prototype.getWork = function () {

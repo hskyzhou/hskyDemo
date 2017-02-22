@@ -19,6 +19,7 @@ class WorkService{
 			'code' => '2001',
 			'result' => false,
 			'message' => '保存失败',
+			'work' => [],
 		];
 		$data = request()->all();
 		if($this->workRepo->create($data)){
@@ -26,6 +27,7 @@ class WorkService{
 				'message' => '保存成功',
 				'result' => true,
 				'code' => '2000',
+				'work' => $data,
 			]);
 		}
 

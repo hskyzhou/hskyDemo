@@ -31,9 +31,13 @@ var AddWorkComponent = (function () {
         });
     };
     AddWorkComponent.prototype.addWork = function () {
-        console.log(this.work);
-        this.worklist.push(this.work);
-        this.workService.addWork(this.work);
+        var _this = this;
+        this.workService.addWork(this.work).then(function (res) {
+            var addedWork = res.work;
+            if (res.result) {
+                _this.worklist.push(addedWork);
+            }
+        });
         this.resetWork();
     };
     AddWorkComponent = __decorate([

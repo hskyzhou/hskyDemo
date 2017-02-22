@@ -31,9 +31,12 @@ export class AddWorkComponent{
 	}
 
 	addWork() : void{
-		console.log(this.work);
-		this.worklist.push(this.work);
-		this.workService.addWork(this.work);
+		this.workService.addWork(this.work).then(res => {
+			let addedWork = res.work as Work;
+			if(res.result){
+				this.worklist.push(addedWork);
+			}
+		});
 		this.resetWork();
 	}
 

@@ -17,11 +17,11 @@ export class WorkService{
 	constructor(private http : Http){
 	}
 
-	addWork(work : Work) : Promise<Work>{
+	addWork(work : Work) : Promise<any>{
 		return this.http
 			.post(this.addWorkUrl, JSON.stringify(work), {headers : this.headers})
 			.toPromise()
-			.then(res => res.json().data)
+			.then((res) => res.json() as any)
 			.catch(this.handleError);
 	}
 
